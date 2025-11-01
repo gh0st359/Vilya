@@ -1,0 +1,21 @@
+name: release
+on:
+  push:
+    tags: ["v*.*.*"]
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-22.04, windows-latest, macos-13]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/setup-node@v4
+        with: { node-version: '20' }
+      - run: cd apps/desktop/ui && npm ci && npm run build
+      - run: cd apps/desktop/src-tauri && cargo tauri build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: artifacts-${{ matrix.os }}
+          path: apps/desktop/src-tauri/target/release/bundle/**/*

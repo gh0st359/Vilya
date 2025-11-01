@@ -1,0 +1,10 @@
+.DS_Store
+/node_modules
+/dist
+/apps/desktop/ui/node_modules
+/apps/desktop/ui/dist
+/target
+/apps/desktop/src-tauri/target
+**/*.sqlite*
+**/.vite
+**/.svelte-kit

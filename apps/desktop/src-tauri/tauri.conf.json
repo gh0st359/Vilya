@@ -1,0 +1,31 @@
+{
+  "productName": "Vilya",
+  "version": "0.1.0",
+  "identifier": "com.vilya.app",
+  "app": {
+    "withGlobalTauri": true,
+    "windows": [
+      {
+        "title": "Vilya",
+        "width": 1400,
+        "height": 900
+      }
+    ]
+  },
+  "bundle": {
+    "active": true,
+    "targets": [
+      "dmg",
+      "appimage",
+      "msi",
+      "nsis"
+    ],
+    "icon": [
+      "icons/icon.png"
+    ],
+    "resources": []
+  },
+  "updater": {
+    "active": false
+  }
+}
